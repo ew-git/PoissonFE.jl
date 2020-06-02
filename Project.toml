@@ -3,8 +3,14 @@ uuid = "5934c6c6-3908-49a8-94b4-6dc993fd4d7a"
 authors = ["Evan Wright <evan.btbucket@gmail.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+Optim = "429524aa-4258-5aef-a3af-852621145aeb"
+StatsFuns = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
+
 [compat]
 julia = "1"
+StatsFuns = ">= 0.9.0"
+Optim = ">= 0.20.0"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

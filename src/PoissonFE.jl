@@ -1,5 +1,10 @@
 module PoissonFE
 
-# Write your package code here.
+import StatsFuns: logsumexp
+using Optim
+
+include("fit.jl")
+
+export PoissonFEModel, fit
 
 end
