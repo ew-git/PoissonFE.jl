@@ -28,6 +28,7 @@ The array `X` should be an _n_ x _k_ matrix where _n_ is the number of observati
 and _k_ is the number of parameters, excluding the fixed effects. 
 
 ```julia
+using PoissonFE
 y = [1.0, 0.0, 0.0, 0.0, 7.0, 1.0, 0.0, 1.0, 0.0, 0.0, 6.0,
 2.0, 3.0, 0.0, 1.0, 6.0, 0.0, 7.0, 0.0, 21.0]
 id = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]

@@ -46,9 +46,11 @@ Returns the estimated coefficients of a `PoissonFEModel` object.
 function fit(model::PoissonFEModel{T}) where T <: AbstractFloat
     id_indices = findlast.(isequal.(unique(model.id)), [model.id])
     llike_optim(params) = -pois_log_like(params, model.x, model.y, id_indices)
-    result = optimize(llike_optim, ones(eltype(model.x), size(model.x, 2)), LBFGS(); autodiff = :forward)
-    return result.minimizer
+    initial_params = ones(eltype(model.x), size(model.x, 2))
+    llike_optim2 = TwiceDifferentiable(llike_optim, initial_params; autodiff=:forward)
+    result = optimize(llike_optim2, initial_params)
+    if !Optim.converged(result)
+        @warn "Optimization failed to converge."
+    end
+    return result.minimizer, inv(Optim.hessian!(llike_optim2, result.minimizer))
 end
-
-# llike_optim(params) = -pois_log_like(params, x_array, y_array, id_indices)
-# @time result2 = optimize(llike_optim, [1.5, 1.5], LBFGS(); autodiff = :forward);
