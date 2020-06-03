@@ -35,7 +35,7 @@ struct PoissonFEModel{T}
     # length of y == size(x, 1)
     y::Array{T}
     x::Array{T}
-    id # array-like  for findlast
+    id # array-like for findlast
 end
 
 """

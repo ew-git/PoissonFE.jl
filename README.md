@@ -14,7 +14,9 @@ Standard errors are computed following [Wooldridge (1999)](https://doi.org/10.10
 
 ## Installation
 
-```julia
+In a Julia repl:
+
+```
 ]add https://github.com/ew-git/PoissonFE.jl
 ```
 
