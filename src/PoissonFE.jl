@@ -2,6 +2,7 @@ module PoissonFE
 
 import StatsFuns: logsumexp
 using Optim
+using LinearAlgebra
 
 include("fit.jl")
 

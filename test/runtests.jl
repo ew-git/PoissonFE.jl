@@ -14,9 +14,7 @@ using Test
     2.17261 0.900435]
     m = PoissonFEModel(y, X, id)
     @test isa(m, PoissonFEModel)
-    coefs, vcov = fit(m)
+    coefs, se = fit(m)
     @test isapprox(coefs, [0.9244995462032737, 0.8693710731458504]; rtol=0.00001)
-    @test isapprox(vcov, [0.024044346260357837 -0.0016609781295821788;
-                         -0.0016609781295821794 0.029650452810013033];
-                    rtol=0.00001)
+    @test isapprox(se, [0.013507707199824406, 0.12757995666403202]; rtol=0.00001)
 end
